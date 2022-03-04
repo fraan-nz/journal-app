@@ -1,0 +1,49 @@
+@use "../../base/settings";
+
+.journal__sidebar {
+	width: 450px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-inline: 10px;
+	background-color: settings.$dark-grey;
+	color: settings.$white;
+
+	.journal__navbar {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 5px;
+
+		.journal__name {
+			font-size: 1.2rem;
+		}
+	}
+
+	.journal__new-entry {
+		width: max-content;
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		color: settings.$white;
+		transition: color 0.3s ease;
+
+		&:hover {
+			color: darken($color: settings.$white, $amount: 20);
+		}
+
+		.calendar__icon {
+			font-size: 6rem;
+		}
+
+		p {
+			margin-top: 10px;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+@use "../../base/settings";
+
+.nothing__content {
+	width: 100%;
+	height: 100vh;
+	background-color: settings.$primary;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	p {
+		font-size: 1.5rem;
+		font-weight: bold;
+		padding: 20px;
+		text-align: center;
+	}
+}

@@ -1,0 +1,54 @@
+@use "../../base/settings";
+
+.notes__content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.note__top-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: settings.$primary;
+		color: settings.$white;
+		padding: 10px 20px;
+	}
+
+	.addNote__content {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+
+		.addNote__title {
+			border: none;
+			color: settings.$dark-grey;
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-bottom: 10px;
+
+			&:focus {
+				outline: none;
+			}
+		}
+		.addNote__description {
+			min-height: 20vh;
+			border: none;
+			color: settings.$dark-grey;
+			font-size: 1.3rem;
+			resize: none;
+
+			&:focus {
+				outline: none;
+			}
+		}
+		.addNote__image {
+			width: 50%;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

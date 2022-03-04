@@ -1,0 +1,64 @@
+@use "../../base/settings";
+
+.journal__entries {
+	width: 100%;
+	margin-top: 30px;
+	flex: 1 1 auto;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	.journal__entry {
+		width: 100%;
+		display: flex;
+		margin-bottom: 10px;
+		background-color: settings.$white;
+		border-radius: 4px;
+		color: settings.$dark-grey;
+		overflow: hidden;
+		cursor: pointer;
+
+		.journal__entry-picture {
+			width: 75px;
+			height: 75px;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.journal__entry-body {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: 8px;
+			overflow: hidden;
+
+			.journal__entry-title {
+				font-size: 1rem;
+				font-weight: bold;
+			}
+			.journal__entry-content {
+				font-size: 0.7rem;
+			}
+		}
+
+		.journal__entry-date {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 5px;
+
+			& > p:first-child {
+				font-size: 1rem;
+				text-transform: capitalize;
+			}
+
+			& > p:last-child {
+				font-size: 1rem;
+				font-weight: bold;
+			}
+		}
+	}
+}

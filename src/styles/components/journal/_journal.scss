@@ -1,0 +1,12 @@
+@forward "./sidebar";
+@forward "./journalEntries";
+@forward "./nothing";
+@forward "./notes";
+
+.journal {
+	display: flex;
+	.journal__main {
+		flex: 1;
+		width: 100%;
+	}
+}
