@@ -5,14 +5,14 @@ import RegisterScreen from "../screens/RegisterScreen";
 
 function AuthRouter() {
 	return (
-		<div className="auth__main">
-			<div className="auth__container">
-				<Routes>
-					<Route path="login" element={<LoginScreen />} />
-					<Route path="register" element={<RegisterScreen />} />
-					<Route path="*" element={<Navigate to="login" />} />
-				</Routes>
-			</div>
+		<div className="auth__main ">
+			{/* <div className="auth__container fadeIn"> */}
+			<Routes>
+				<Route path="login" element={<LoginScreen />} />
+				<Route path="register" element={<RegisterScreen />} />
+				<Route path="*" element={<Navigate to="login" />} />
+			</Routes>
+			{/* </div> */}
 		</div>
 	);
 }

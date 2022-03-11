@@ -1,6 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "../../../hooks/useForm";
+import { activeNote, startDeleting } from "../../../redux/actions/notes";
 
 function AddNote() {
+	const dispatch = useDispatch();
+	const { active } = useSelector((state) => state.notes);
+	const { values, handleInputChange, reset } = useForm(active);
+	const { body, title } = values;
+
+	const activeId = useRef(active.id);
+
+	useEffect(() => {
+		if (active.id !== activeId.current) {
+			reset(active);
+			activeId.current = active.id;
+		}
+	}, [active, reset]);
+
+	useEffect(() => {
+		dispatch(activeNote(values.id, { ...values }));
+	}, [values, dispatch]);
+
+	const handleDelete = () => {
+		dispatch(startDeleting(values.id));
+	};
+
 	return (
 		<div className="addNote__content">
 			<input
@@ -8,17 +33,25 @@ function AddNote() {
 				placeholder="Some awesome title"
 				className="addNote__title"
 				autoComplete="off"
+				value={title}
+				onChange={handleInputChange}
+				name="title"
 			/>
 			<textarea
 				placeholder="What happened today?"
 				className="addNote__description"
+				value={body}
+				onChange={handleInputChange}
+				name="body"
 			/>
-			<div className="addNote__image">
-				<img
-					src="https://files.worldwildlife.org/wwfcmsprod/images/HERO_Giant_Panda_113974/hero_small/7270gqb4yg_Bernard_de_wetter_wwf_canon_113974.jpg"
-					alt="Note"
-				/>
-			</div>
+			{active.url && (
+				<div className="addNote__image">
+					<img src={active.url} alt="Note" />
+				</div>
+			)}
+			<button className="btn btn-primary btn-delete" onClick={handleDelete}>
+				Delete
+			</button>
 		</div>
 	);
 }
